@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="WARN">
+    <appenders>
+
+        <File name="error" fileName="logs/error.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <LevelRangeFilter minLevel="warn" maxLevel="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+
+        <File name="search" fileName="logs/search.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <LevelRangeFilter minLevel="trace" maxLevel="trace" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+
+        <File name="input_error" fileName="logs/input_error.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+            <LevelRangeFilter minLevel="info" maxLevel="info" onMatch="ACCEPT" onMismatch="DENY"/>
+        </File>
+
+
+    </appenders>
+
+    <loggers>
+        <root level="trace">
+            <appender-ref ref="search" level="trace"/>
+            <appender-ref ref="input_error" level="info"/>
+            <appender-ref ref="error" level="warn"/>
+        </root>
+    </loggers>
+</configuration>
